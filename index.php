@@ -1,5 +1,28 @@
 <?php
 
+
+    //Les tableaux
+    $classe1['nom'] = 'Dev1';
+    $classe1['eleves'] = [];
+
+    $classe2['nom'] = 'Dev2';
+    $classe2['eleves'] = [];
+
+    $etudiant1['nom'] = 'Dupont';
+    $etudiant1['prenom'] = 'Jean';
+    $etudiant1['age'] = 19;
+
+    $etudiant2['nom'] = 'Toto';
+    $etudiant2['prenom'] = 'Titi';
+    $etudiant2['age'] = 22;
+
+    $classe1['eleves'][] = $etudiant1;
+    $classe2['eleves'][] = $etudiant2;
+
+
+
+echo"<hr />";
+
     //FONCTIONS
 
     function addition($nombreA,$nombreB)
