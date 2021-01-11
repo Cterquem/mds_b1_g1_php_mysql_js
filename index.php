@@ -30,7 +30,15 @@
     $classe2['eleves'][] = $etudiant3;
 
 
+    function afficherEleveNumero($classe,$numero){
+        //à faire
 
+    }
+
+    afficherEleveNumero($classe2,1); //L'élève numéro 1 s'appelle Tom Xxxxx
+    afficherEleveNumero($classe1,0); //L'élève numéro 0 s'appelle Dupont Jean
+
+    echo"<hr />";
 
     foreach ($classe2["eleves"] as $eleve)
     {
