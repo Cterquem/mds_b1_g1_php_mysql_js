@@ -1,5 +1,6 @@
 <?php
 
+    //FONCTIONS
 
     function addition($nombreA,$nombreB)
     {
@@ -43,23 +44,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Variables
 
     $nbMsg = 105;
     $registrationDate = new DateTime("2020-07-08 11:14:15");
@@ -68,42 +53,26 @@
     // Nombre de jours depuis l'inscription de l'utilisateur
     $registrationDays = $registrationDate->diff(new DateTime("now"))->days;
 
-//    if($isAdmin) {
-//        echo 'Administrateur';
-//    } else if ($nbMsg > 50 && $registrationDays < 30) {
-//        echo 'Flood';
-//    } else if ($nbMsg > 50 || $registrationDays >= 365) {
-//        echo 'Utilisateur VIP';
-//    } else {
-//        echo 'Utilisateur débutant';
-//    }
-//
-//    if($score > 0 )
-//    {
-//        $message = "Vous avez gagné";
-//    } else
-//    {
-//        $message = "Vous avez perdu";
-//    }
+    if($isAdmin) {
+        echo 'Administrateur';
+    } else if ($nbMsg > 50 && $registrationDays < 30) {
+        echo 'Flood';
+    } else if ($nbMsg > 50 || $registrationDays >= 365) {
+        echo 'Utilisateur VIP';
+    } else {
+        echo 'Utilisateur débutant';
+    }
 
-//    $message = ($score > 0) ? "Vous avez gagné" : "Vous avez perdu";
+    if($score > 0 )
+    {
+        $message = "Vous avez gagné";
+    } else
+    {
+        $message = "Vous avez perdu";
+    }
 
-//    echo $message;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $message = ($score > 0) ? "Vous avez gagné" : "Vous avez perdu";
+    echo $message;
 
 
 
@@ -118,14 +87,14 @@
 
         $moyenne = ($nombreA + $nombreB) / 2;
 
-//        echo "Le total est $totalAB";
-//
-//        echo "<hr/>";
-//
-//        echo 'La moyenne est '.$moyenne;
-//
-//        echo 'Le total d\'aujourd\'hui est ' . $totalAB;
-//        echo "Le total d'aujourd'hui est " . $totalAB;
+        echo "Le total est $totalAB";
+
+        echo "<hr/>";
+
+        echo 'La moyenne est '.$moyenne;
+
+        echo 'Le total d\'aujourd\'hui est ' . $totalAB;
+        echo "Le total d'aujourd'hui est " . $totalAB;
 
 
 ?>
