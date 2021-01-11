@@ -31,22 +31,38 @@
 
 
     function afficherEleveNumero($classe,$numero){
-        //à faire
+        //on vérifie si l'élève existe
+        if($classe['eleves'][$numero])
+        {
+            //on récupère l'élève
+            $eleve = $classe['eleves'][$numero];
+
+            //on affiche la phrase
+            echo "L'élève numéro $numero s'appelle {$eleve['nom']} {$eleve['prenom']}";
+        } else
+        {
+            echo"Aucun élève ne correspond";
+        }
+
     }
 
     afficherEleveNumero($classe2,1); //L'élève numéro 1 s'appelle Tom Xxxxx
     afficherEleveNumero($classe1,0); //L'élève numéro 0 s'appelle Dupont Jean
 
     function afficherListeEleves($classe){
-        //à faire
-        echo "<p>Liste des élèves (".count($classe['eleves'])." élève".(  count($classe['eleves']) > 0 ? "s" : "" ).") de la classe ".$class["nom"]." :</p>";
+        //on récupère le nombre d'élève
+        $nbEleves = count($classe['eleves']);
+        echo "<p>Liste des élèves (".$nbEleves." élève".(  $nbEleves > 0 ? "s" : "" ).") de la classe ".$classe["nom"]." :</p>";
         echo"<ul>";
+        //on parcourt la liste des élèves de la classe
         foreach ($classe['eleves'] as $eleve)
         {
             echo"<li>".$eleve["nom"]." ".$eleve["prenom"]."</li>";
         }
         echo"</ul>";
     }
+
+
 
     afficherListeEleves($classe1);
         //<p>Liste des élèves (1 élève) de la classe Dev 1 :</p><ul>
@@ -58,47 +74,52 @@
     //<li>Dupont Jean</li>
     //</ul>
 
+    function ajouterEleve(&$classe,$nom,$prenom,$dateNaissance)
+    {
+        //on créé un nouvel élève
+        $newEleve["nom"] = $nom;
+        $newEleve["prenom"] = $prenom;
+        //on calcule son âge
+        $newEleve["age"] =  (new DateTime("now"))->format("Y") - $dateNaissance;
 
-    $idEleve = ajouterEleve($classe1,"son nom","son prenom",1986);
-    echo $idEleve;
-    //3
+        //on ajoute l'élève à la liste des élèves de la classe et on récupère le nombre d'élèves
+        return array_push( $classe["eleves"],$newEleve);
+    }
+
+    $idEleve = ajouterEleve($classe1,"son nom","son prenom",1990);
+    //1
 
     echo"<hr />";
 
     foreach ($classe2["eleves"] as $eleve)
     {
-        echo $eleve["nom"];
+        echo $eleve["nom"]."<br />";
     }
 
     $i = 0;
     while(  count($classe2["eleves"]) > $i  ) {
-        echo $classe2["eleves"][$i]["nom"];
+        echo $classe2["eleves"][$i]["nom"]."<br />";
         $i++;
     }
 
     for($i = 0; count($classe2["eleves"]) > $i; $i++) {
-        echo $classe2["eleves"][$i]["nom"];
+        echo $classe2["eleves"][$i]["nom"]."<br />";
     }
 
 
-$compteur = 3;
-while($compteur > 0) {
-    echo $compteur . '<br />';
-    $compteur--;
-}
+    $compteur = 3;
+    while($compteur > 0) {
+        echo $compteur . '<br />';
+        $compteur--;
+    }
 
-for($pourcentage = 3; $compteur > 0; $compteur--) {
-    echo $compteur . '<br />';
-}
-
-
+    for($pourcentage = 3; $compteur > 0; $compteur--) {
+        echo $compteur . '<br />';
+    }
 
 
 
 
-
-
-    die();
 echo"<hr />";
 
     //FONCTIONS
@@ -164,6 +185,8 @@ echo"<hr />";
         echo 'Utilisateur débutant';
     }
 
+    echo"<hr />";
+    $score = 10;
     if($score > 0 )
     {
         $message = "Vous avez gagné";
@@ -172,13 +195,12 @@ echo"<hr />";
         $message = "Vous avez perdu";
     }
 
-    $message = ($score > 0) ? "Vous avez gagné" : "Vous avez perdu";
-    echo $message;
+    echo $message = ($score > 0) ? "Vous avez gagné" : "Vous avez perdu";
 
 
 
 
-
+echo"<hr />";
 
 
         $nombreA = 10;
@@ -194,8 +216,13 @@ echo"<hr />";
 
         echo 'La moyenne est '.$moyenne;
 
+        echo "<hr/>";
+
         echo 'Le total d\'aujourd\'hui est ' . $totalAB;
-        echo "Le total d'aujourd'hui est " . $totalAB;
+
+echo "<hr/>";
+
+echo "Le total d'aujourd'hui est " . $totalAB;
 
 
 ?>
