@@ -1,27 +1,30 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+
 
     function addition($nombreA,$nombreB)
     {
-
+        return $nombreA + $nombreB;
     }
-
 
     function soustraction($nombreA,$nombreB)
     {
-
+        return $nombreA - $nombreB;
     }
 
     function division($nombreA,$nombreB)
     {
-        //à remplir
+        return ($nombreB === 0) ? "impossible" : $nombreA / $nombreB;
     }
 
     function afficherResultat($type,$nombreA, $nombreB)
     {
-        //à remplir
+        switch ($type)
+        {
+            case "addition" : return addition($nombreA,$nombreB); break;
+            case "soustraction" : return soustraction($nombreA,$nombreB); break;
+            case "division" : return division($nombreA,$nombreB); break;
+
+        }
     }
 
     $resultat = afficherResultat("addition",5,10);
