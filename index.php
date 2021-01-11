@@ -2,25 +2,70 @@
 
 
     //Les tableaux
+    $classe1 = [];
     $classe1['nom'] = 'Dev1';
     $classe1['eleves'] = [];
 
+    $classe2 = [];
     $classe2['nom'] = 'Dev2';
     $classe2['eleves'] = [];
 
+    $etudiant1 = [];
     $etudiant1['nom'] = 'Dupont';
     $etudiant1['prenom'] = 'Jean';
     $etudiant1['age'] = 19;
 
+    $etudiant2 = [];
     $etudiant2['nom'] = 'Toto';
     $etudiant2['prenom'] = 'Titi';
     $etudiant2['age'] = 22;
 
+    $etudiant3 = [];
+    $etudiant3['nom'] = 'Tom';
+    $etudiant3['prenom'] = 'Xxxx';
+    $etudiant3['age'] = 24;
+
     $classe1['eleves'][] = $etudiant1;
     $classe2['eleves'][] = $etudiant2;
+    $classe2['eleves'][] = $etudiant3;
 
 
 
+
+    foreach ($classe2["eleves"] as $eleve)
+    {
+        echo $eleve["nom"];
+    }
+
+    $i = 0;
+    while(  count($classe2["eleves"]) > $i  ) {
+        echo $classe2["eleves"][$i]["nom"];
+        $i++;
+    }
+
+    for($i = 0; count($classe2["eleves"]) > $i; $i++) {
+        echo $classe2["eleves"][$i]["nom"];
+    }
+
+
+$compteur = 3;
+while($compteur > 0) {
+    echo $compteur . '<br />';
+    $compteur--;
+}
+
+for($pourcentage = 3; $compteur > 0; $compteur--) {
+    echo $compteur . '<br />';
+}
+
+
+
+
+
+
+
+
+    die();
 echo"<hr />";
 
     //FONCTIONS
