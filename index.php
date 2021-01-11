@@ -37,6 +37,17 @@
     afficherEleveNumero($classe2,1); //L'élève numéro 1 s'appelle Tom Xxxxx
     afficherEleveNumero($classe1,0); //L'élève numéro 0 s'appelle Dupont Jean
 
+    function afficherListeEleves($classe){
+        //à faire
+        echo "<p>Liste des élèves (".count($classe['eleves'])." élève".(  count($classe['eleves']) > 0 ? "s" : "" ).") de la classe ".$class["nom"]." :</p>";
+        echo"<ul>";
+        foreach ($classe['eleves'] as $eleve)
+        {
+            echo"<li>".$eleve["nom"]." ".$eleve["prenom"]."</li>";
+        }
+        echo"</ul>";
+    }
+
     afficherListeEleves($classe1);
         //<p>Liste des élèves (1 élève) de la classe Dev 1 :</p><ul>
         //<li>Dupont Jean</li>
@@ -47,6 +58,10 @@
     //<li>Dupont Jean</li>
     //</ul>
 
+
+    $idEleve = ajouterEleve($classe1,"son nom","son prenom",1986);
+    echo $idEleve;
+    //3
 
     echo"<hr />";
 
