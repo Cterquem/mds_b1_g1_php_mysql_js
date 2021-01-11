@@ -38,9 +38,14 @@
     afficherEleveNumero($classe1,0); //L'élève numéro 0 s'appelle Dupont Jean
 
     afficherListeEleves($classe1);
-        //<p>Liste des élèves (1 élève) de la classe Dev 1 :<ul>
+        //<p>Liste des élèves (1 élève) de la classe Dev 1 :</p><ul>
         //<li>Dupont Jean</li>
         //</ul>
+
+    afficherListeEleves($classe2);
+    //<p>Liste des élèves (2 élèves) de la classe Dev 2 :</p><ul>
+    //<li>Dupont Jean</li>
+    //</ul>
 
 
     echo"<hr />";
