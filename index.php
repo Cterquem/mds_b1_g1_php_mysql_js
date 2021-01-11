@@ -32,11 +32,16 @@
 
     function afficherEleveNumero($classe,$numero){
         //à faire
-
     }
 
     afficherEleveNumero($classe2,1); //L'élève numéro 1 s'appelle Tom Xxxxx
     afficherEleveNumero($classe1,0); //L'élève numéro 0 s'appelle Dupont Jean
+
+    afficherListeEleves($classe1);
+        //<p>Liste des élèves (1 élève) de la classe Dev 1 :<ul>
+        //<li>Dupont Jean</li>
+        //</ul>
+
 
     echo"<hr />";
 
