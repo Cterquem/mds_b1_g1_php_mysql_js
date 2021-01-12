@@ -13,7 +13,7 @@ function affichage($message)
 
 if(isset($_GET["type"]) && $_GET["type"] === "fruit") echo "abricot";
 
-if(isset($_GET["type2"]) && $_GET["type2"] === "animal") echo "abricot";
+if(isset($_GET["type2"]) && $_GET["type2"] === "animal") echo "chien";
 
 if(isset($_GET["calcul"]) && isset($_GET["a"]) && isset($_GET["b"]))
 {
