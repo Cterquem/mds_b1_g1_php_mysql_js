@@ -27,7 +27,12 @@ $chambres[] = $chambre3;
 //afficher la liste des chambres
 //<ul><li>La suite</li></li>La lodge, ...</li></ul>
 
-
+echo "<ul>";
+foreach($chambres as $chambre) {
+    echo "<li>" . $chambre["nom"] . "</li>";
+    echo "<li> {$chambre["nom"]} </li>";
+}
+echo"</ul>";
 
 //exercice 2 : afficher la liste des chambres et de leur service :
 //<ul><li>La suite proposent : <ul><li>wifi</li><li>bluetooth</li></ul></li></li>La lodge, ...</li></ul>

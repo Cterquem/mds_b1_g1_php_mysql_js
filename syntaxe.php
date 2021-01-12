@@ -272,7 +272,7 @@ echo"<hr />";
 
 echo "<hr/>";
 
-echo "Le total d'aujourd'hui est " . $totalAB;
+echo "<p>Le total d'aujourd'hui est " . $totalAB . "</p>";
 
 
 ?>
