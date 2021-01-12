@@ -207,7 +207,7 @@ echo"<hr />";
         $nombreB = 20;
 
         $totalAB = $nombreA + $nombreB;
-
+        //       fleche vers la gauche
         $moyenne = ($nombreA + $nombreB) / 2;
 
         echo "Le total est $totalAB";
