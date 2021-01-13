@@ -1,5 +1,7 @@
 <?php
 
+//exercice 2
+
 $chambres = [];
 
 $chambre1 = [];
