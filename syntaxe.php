@@ -29,13 +29,15 @@
         <!-- formulaire en get qui ouvrira la page.php-->
         <form action="page.php" method="post">
             <input type="text" name="nom" />
+            <input type="text" name="prenom" />
             <input type="submit">
         </form>
         <?
 
         //dans la page page.php
         //si je clique sur le bouton du deuxième formulaire j'obtiendrais la valeur qui a été saisi dans le champs dans le tableau $_POST
-        echo $_POST["nom"]; //affichera ce qui a été saisi dans le formulaire
+        echo $_POST["nom"]; //affichera ce qui a été saisi dans le formulaire dans le champs nom
+        echo $_POST["prenom"]; //affichera ce qui a été saisi dans le formulaire dans le champs prenom
 
 //L es tableaux multidimensionnelles  //////////////////////////////////////////////
 
