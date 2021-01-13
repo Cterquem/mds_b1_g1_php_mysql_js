@@ -78,7 +78,6 @@ foreach($chambres as $chambre) {
         $chambresAafficher[] = $chambre;
     }
 }
-
 affichageChambres($chambresAafficher);
 
 //exercice 4 : créer un début de site avec une page d'accueil qui affiche toutes les chambres

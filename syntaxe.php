@@ -148,6 +148,19 @@
 
     }
 
+    //équivalence
+    if( $boolean === true ) {}
+    if( $boolean ) {}
+
+    //équivalence
+    if( $boolean === false ) {}
+    if( !$boolean ) {}
+
+    // && || AND OR
+
+    if( $bool1 && $bool2 ) { } //$bool1 et $bool2 doivent tous les deux être vrai pour que la condition soit exécutée
+    if( $bool1 || $bool2 ) { } //$bool1 ou $bool2 doivent tous les deux être vrai pour que la condition soit exécutée
+
 
 // Les variables ///////////////////////////////////////
 
