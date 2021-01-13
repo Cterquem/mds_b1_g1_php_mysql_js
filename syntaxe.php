@@ -1,278 +1,201 @@
 <?php
 
-$eleves = ["tom","etienne"];
 
+//Le passage d'information entre les pages /////////////////////////////////////////////////
+
+        //le tableau GET est en tout disponible, il contient les paramètres passées dans l'url de la page
+        var_dump($_GET);
+
+        //vérification qu'un élément est dans le tableau $_GET
+        if( isset($_GET["parametre"]))
+        {
+            //affichage de la valeur
+            echo $_GET["parametre"];
+        }
+
+        //la création d'une url :
+        echo "<a href='mapage.php?parametre=valeur'>le lien</a>";
+        echo "<a href='mapage.php?parametre=valeur&deuxiemeParametre=autreValeur'>le lien</a>";
+
+//L es tableaux multidimensionnelles  //////////////////////////////////////////////
+
+    //définition d'un tableau
+    $eleves = ["tom","etienne"];
+
+    //définition d'un tableau
     $matieres = [];
+
+    //définition d'un tableau
     $php = ["mysql",$eleves];
+    //on ajoute le tableau php dans le tableau matieres
     $matieres[] = $php;
 
+    //définition d'un tableau
     $sql = ["php",$eleves];
+    //on ajoute le tableau sql dans le tableau matieres
     $matieres[] = $sql;
 
-
+    //on parcourt le tableau matieres, à chaque itération on récupère dans la variable matiere un élement du tableau
     foreach($matieres as $matiere)
     {
         echo"<p>La matière est ";
+        //on affiche la première colonne du tableau matiere, qui est lui-même un élément du tableau matieres
         echo $matiere[0];
         echo"<p>La liste des prénom est : </p>";
+
+        //on parcourt la première colonne du tableau matiere, qui est lui même un tableau
         foreach($matiere[1] as $eleve )
         {
+            //on affiche la chaîne de caractère qu'on est en train de parcourir
             echo $eleve;
         }
     }
 
+// Les tableaux ////////////////////////////////////////////
 
+   //définition d'un tableau vide
+    $tableau = [];
 
+    //définition d'un tableau avec des données
+    $tableau = ["banane","tomate","licorne"];
 
+    //on accède aux éléments d'un tableau
+    echo $tableau[0]; //affiche banane
+    echo $tableau[1]; //affiche banane
 
+    //sécurité : avant d'accéder on vérifie si la donnée existe
+    if( isset(  $tableau[0] )) {  echo $tableau[0]; }
 
+    //on ajoute un élément dans un tableau
+    $tableau[] = "fraise";
 
+// les boucles /////////////////////////////////////////////////////////
 
+    //pour parcourir un tableau il y a plusieurs possibilités
+    //les trois codes suvants font exactement la même chose
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //Les tableaux
-    $classe1 = [];
-    $classe1['nom'] = 'Dev1';
-    $classe1['eleves'] = [];
-
-    $classe2 = [];
-    $classe2['nom'] = 'Dev2';
-    $classe2['eleves'] = [];
-
-    $etudiant1 = [];
-    $etudiant1['nom'] = 'Dupont';
-    $etudiant1['prenom'] = 'Jean';
-    $etudiant1['age'] = 19;
-
-    $etudiant2 = [];
-    $etudiant2['nom'] = 'Toto';
-    $etudiant2['prenom'] = 'Titi';
-    $etudiant2['age'] = 22;
-
-    $etudiant3 = [];
-    $etudiant3['nom'] = 'Tom';
-    $etudiant3['prenom'] = 'Xxxx';
-    $etudiant3['age'] = 24;
-
-    $classe1['eleves'][] = $etudiant1;
-    $classe2['eleves'][] = $etudiant2;
-    $classe2['eleves'][] = $etudiant3;
-
-
-    function afficherEleveNumero($classe,$numero){
-        //on vérifie si l'élève existe
-        if($classe['eleves'][$numero])
-        {
-            //on récupère l'élève
-            $eleve = $classe['eleves'][$numero];
-
-            //on affiche la phrase
-            echo "L'élève numéro $numero s'appelle {$eleve['nom']} {$eleve['prenom']}";
-        } else
-        {
-            echo"Aucun élève ne correspond";
-        }
-
-    }
-
-    afficherEleveNumero($classe2,1); //L'élève numéro 1 s'appelle Tom Xxxxx
-    afficherEleveNumero($classe1,0); //L'élève numéro 0 s'appelle Dupont Jean
-
-    function afficherListeEleves($classe){
-        //on récupère le nombre d'élève
-        $nbEleves = count($classe['eleves']);
-        echo "<p>Liste des élèves (".$nbEleves." élève".(  $nbEleves > 0 ? "s" : "" ).") de la classe ".$classe["nom"]." :</p>";
-        echo"<ul>";
-        //on parcourt la liste des élèves de la classe
-        foreach ($classe['eleves'] as $eleve)
-        {
-            echo"<li>".$eleve["nom"]." ".$eleve["prenom"]."</li>";
-        }
-        echo"</ul>";
-    }
-
-
-
-    afficherListeEleves($classe1);
-        //<p>Liste des élèves (1 élève) de la classe Dev 1 :</p><ul>
-        //<li>Dupont Jean</li>
-        //</ul>
-
-    afficherListeEleves($classe2);
-    //<p>Liste des élèves (2 élèves) de la classe Dev 2 :</p><ul>
-    //<li>Dupont Jean</li>
-    //</ul>
-
-    function ajouterEleve(&$classe,$nom,$prenom,$dateNaissance)
-    {
-        //on créé un nouvel élève
-        $newEleve["nom"] = $nom;
-        $newEleve["prenom"] = $prenom;
-        //on calcule son âge
-        $newEleve["age"] =  (new DateTime("now"))->format("Y") - $dateNaissance;
-
-        //on ajoute l'élève à la liste des élèves de la classe et on récupère le nombre d'élèves
-        return array_push( $classe["eleves"],$newEleve);
-    }
-
-    $idEleve = ajouterEleve($classe1,"son nom","son prenom",1990);
-    //1
-
-    echo"<hr />";
-
+    //première possibilité : foreach
     foreach ($classe2["eleves"] as $eleve)
     {
         echo $eleve["nom"]."<br />";
     }
 
+    //deuxième possibilité : while
     $i = 0;
     while(  count($classe2["eleves"]) > $i  ) {
         echo $classe2["eleves"][$i]["nom"]."<br />";
         $i++;
     }
 
+    //troisième possibilité : for
+    //attention aux boucles infinies
+
     for($i = 0; count($classe2["eleves"]) > $i; $i++) {
         echo $classe2["eleves"][$i]["nom"]."<br />";
     }
 
 
-    $compteur = 3;
-    while($compteur > 0) {
-        echo $compteur . '<br />';
-        $compteur--;
-    }
+// Les fonctions ////////////////////////////////////////////////////
 
-    for($pourcentage = 3; $compteur > 0; $compteur--) {
-        echo $compteur . '<br />';
-    }
-
-
-
-
-echo"<hr />";
-
-    //FONCTIONS
-
-    function addition($nombreA,$nombreB)
+    //Définition d'une fonction sans paramètre
+    function nomDeLaFonction()
     {
-        return $nombreA + $nombreB;
+
     }
 
+    //éxécution d'une fonction
+    nomDeLaFonction();
 
-    function soustraction($nombreA,$nombreB)
+    //Définition d'une fonction avec paramètre
+    function nomDeLaFonctionAvecParametre($parametre1,$parametre2)
     {
-        return $nombreA - $nombreB;
+
     }
 
-    function division($nombreA,$nombreB)
+    //éxécution d'une fonction
+    nomDeLaFonctionAvecParametre("toto",10);
+
+    //portée des variables et return
+    $total = 10;
+
+    function nomDeLaFonctionAvecReturn($parametre1,$parametre2)
     {
-        return ($nombreB === 0) ? "impossible" : $nombreA / $nombreB;
+        //la variable $total n'est pas accessible dans la fonction, seule $parametre1 et $parametre2 sont accessibles
+
+        //la fonction peut renvoyer une information
+        return $parametre1 + $parametre2;
     }
 
-    function afficherResultat($type,$nombreA, $nombreB)
+    //lors de l'éxécution on peut récupérer, afficher, stocker le retour fait par la fonction et l'utiliser ensuite
+    $total = nomDeLaFonctionAvecReturn(10,23);
+    echo $total; //affiche 33
+
+
+
+//Les conditions
+
+    //Le if est obligatoire
+    //Il peut y avoir 0 ou plusieurs else if
+    //Il peut y avoir 0 ou 1 else (et il doit être en dernier
+    if( $variable === true)
     {
-        switch ($type)
-        {
-            case "addition" : return addition($nombreA,$nombreB); break;
-            case "soustraction" : return soustraction($nombreA,$nombreB); break;
-            case "division" : return division($nombreA,$nombreB); break;
 
-        }
-    }
-
-    $resultat = afficherResultat("addition",5,10);
-    echo "Le résultat est $resultat <br />";
-
-    $resultat = afficherResultat("soustraction",3,10);
-    echo "Le résultat est $resultat <br />";
-
-    //gérer le fait qu'on ne peut pas diviser par zéro
-    $resultat = afficherResultat("division",5,3);
-    echo "Le résultat est $resultat <br />";
-
-    //gérer le fait qu'on ne peut pas diviser par zéro
-    $resultat = afficherResultat("division",5,0);
-    echo "Le résultat est $resultat <br />";
-
-
-
-    //Variables
-
-    $nbMsg = 105;
-    $registrationDate = new DateTime("2020-07-08 11:14:15");
-    $isAdmin = false;
-
-    // Nombre de jours depuis l'inscription de l'utilisateur
-    $registrationDays = $registrationDate->diff(new DateTime("now"))->days;
-
-    if($isAdmin) {
-        echo 'Administrateur';
-    } else if ($nbMsg > 50 && $registrationDays < 30) {
-        echo 'Flood';
-    } else if ($nbMsg > 50 || $registrationDays >= 365) {
-        echo 'Utilisateur VIP';
-    } else {
-        echo 'Utilisateur débutant';
-    }
-
-    echo"<hr />";
-    $score = 10;
-    if($score > 0 )
+    } else if( $variable2 === false)
     {
-        $message = "Vous avez gagné";
+
     } else
     {
-        $message = "Vous avez perdu";
+
     }
 
-    echo $message = ($score > 0) ? "Vous avez gagné" : "Vous avez perdu";
+
+// Les variables ///////////////////////////////////////
 
 
+        //    Le nom des variables doit commencer par le signe dollars ($)
+        //    Le nom des variables doit être composé uniquement de caractères alpha-numériques (A-z, 0-9, et _ )
+        //    Le nom des variables ne doit pas contenir d’accents (utiliser un nommage en anglais ?)
+        //    Le nom des variables ne doit pas commencer par un chiffre
+        //    Le nom des variables est sensible à la casse (case-sensitive). Ainsi $var est différent de $Var
+        //    Lors de la déclaration, les variables ne sont pas typées
+
+        //définition d'une variable (de droite à gauche)
+        $nomDeLaVariable = "valeur";
+
+        //différents type de valeur
+        $nombreA = 10; //entier
+        $nombreB = 20; //entier
+        $flottant = 10.34; //flottant (en utilisant le point)
+        $rien = null; //null
+        $vrai = true; //boolean
+        $faux = false; //boolean
+        $tableau = []; //tableau
 
 
-echo"<hr />";
-
-
-        $nombreA = 10;
-        $nombreB = 20;
-
+        //mathématique
         $totalAB = $nombreA + $nombreB;
-        //       fleche vers la gauche
         $moyenne = ($nombreA + $nombreB) / 2;
+        $complexe = (($nombreB + $nombreA) / 2 * 3 ) / $nombreB;
 
+        //concatenation
+        //dans une chaîne de caractère avec des doubles quote on peut inclure une variable simple
         echo "Le total est $totalAB";
 
-        echo "<hr/>";
-
+        //la concaténation peut aussi se faire avec un point et ou des simples quotes
         echo 'La moyenne est '.$moyenne;
 
-        echo "<hr/>";
-
+        //on peut aussi utiliser l'antislash pour échapper un caractère
         echo 'Le total d\'aujourd\'hui est ' . $totalAB;
 
-echo "<hr/>";
+        //incrémentation
 
-echo "<p>Le total d'aujourd'hui est " . $totalAB . "</p>";
-
+        $total = 10;
+        $total++; //on augmente de 1, donc $total vaut 11
+        $total += 1; //on augmente de 1, donc $total vaut 12
+        $total += 10; //on augmente de 10, donc $total vaut 22
+        $total--; //on diminue de 1, donc $total vaut 21
+        $total -= 1; //on diminue de 1, donc $total vaut 20
+        $total -= 10; //on diminue de 10, donc $total vaut 10
 
 ?>
+
