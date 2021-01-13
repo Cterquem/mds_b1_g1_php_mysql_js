@@ -19,6 +19,24 @@
         echo "<a href='mapage.php?parametre=valeur'>le lien</a>";
         echo "<a href='mapage.php?parametre=valeur&deuxiemeParametre=autreValeur'>le lien</a>";
 
+        //Le tableau $_POST est en tout temps disponible, il contient toutes les variables contenu dans la requête POST
+        //pour lancer une requête en POST : formulaire, requête CURL, outils externe
+
+        ?>
+        <!-- formulaire en get qui ouvrira la page.php-->
+        <form action="page.php" method="get">
+        </form>
+        <!-- formulaire en get qui ouvrira la page.php-->
+        <form action="page.php" method="post">
+            <input type="text" name="nom" />
+            <input type="submit">
+        </form>
+        <?
+
+        //dans la page page.php
+        //si je clique sur le bouton du deuxième formulaire j'obtiendrais la valeur qui a été saisi dans le champs dans le tableau $_POST
+        echo $_POST["nom"]; //affichera ce qui a été saisi dans le formulaire
+
 //L es tableaux multidimensionnelles  //////////////////////////////////////////////
 
     //définition d'un tableau

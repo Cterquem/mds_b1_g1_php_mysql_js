@@ -35,3 +35,6 @@ $chambres[] = $chambre3;
 ///
 /// exercice 4 : pouvoir faire une recherche aussi sur les services
 /// si je recherche baignoire je n'affiche que la chambre lodge
+///
+///
+//
