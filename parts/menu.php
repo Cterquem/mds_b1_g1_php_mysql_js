@@ -6,3 +6,4 @@ echo "<a href='../contact.php'>Contact</a><br />";
 echo"<a href='page1.php?section=produits&page=1'>Produits (page 1)</a><br />";
 echo"<a href='page1.php?section=produits&page=2'>Produits (page 2)</a><br />";
 echo"<a href='page1.php?section=archives'>Archive</a><br />";
+echo"<a href='recherche.php'>Archive</a><br />";

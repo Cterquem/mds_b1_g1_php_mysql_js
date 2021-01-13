@@ -3,7 +3,7 @@
 
 //Le passage d'information entre les pages /////////////////////////////////////////////////
 
-        //le tableau GET est en tout disponible, il contient les paramètres passées dans l'url de la page
+        //le tableau $_GET est en tout temps disponible, il contient les paramètres passées dans l'url de la page
         //var_dump uniquement pour du débuggage et affiche les données dans le navigateur
         var_dump($_GET);
 
@@ -28,7 +28,9 @@
     $matieres = [];
 
     //définition d'un tableau
-    $php = ["mysql",$eleves];
+    $php = [];
+    $php[] = "mysql";
+    $php[] = $eleves;
     //on ajoute le tableau php dans le tableau matieres
     $matieres[] = $php;
 
@@ -68,7 +70,7 @@
     //sécurité : avant d'accéder on vérifie si la donnée existe
     if( isset(  $tableau[0] )) {  echo $tableau[0]; }
 
-    //on ajoute un élément dans un tableau
+    //on ajoute un élément dans un tableau, j'ajoute "fraise" dans la première place disponible du tableau $tableau
     $tableau[] = "fraise";
 
     //count
@@ -137,6 +139,7 @@
     //lors de l'éxécution on peut récupérer, afficher, stocker le retour fait par la fonction et l'utiliser ensuite
     $total = nomDeLaFonctionAvecReturn(10,23);
     echo $total; //affiche 33
+    echo $total = nomDeLaFonctionAvecReturn(1,2); //affiche 3
 
 
 
@@ -213,8 +216,8 @@
 
         $total = 10;
         $total++; //on augmente de 1, donc $total vaut 11
-        $total += 1; //on augmente de 1, donc $total vaut 12
-        $total += 10; //on augmente de 10, donc $total vaut 22
+        $total += 1; //on augmente de 1, donc $total vaut 12 équivalent de $total = $total + 1;
+        $total += 10; //on augmente de 10, donc $total vaut 22 équivalent de $total = $total + 10;
         $total--; //on diminue de 1, donc $total vaut 21
         $total -= 1; //on diminue de 1, donc $total vaut 20
         $total -= 10; //on diminue de 10, donc $total vaut 10

@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 include "parts/menu.php";
 
 if( isset($_GET["section"])  === true  ) {
