@@ -4,9 +4,11 @@
 //Le passage d'information entre les pages /////////////////////////////////////////////////
 
         //le tableau GET est en tout disponible, il contient les paramètres passées dans l'url de la page
+        //var_dump uniquement pour du débuggage et affiche les données dans le navigateur
         var_dump($_GET);
 
         //vérification qu'un élément est dans le tableau $_GET
+        //isset renvoi un boolean
         if( isset($_GET["parametre"]))
         {
             //affichage de la valeur
@@ -69,29 +71,35 @@
     //on ajoute un élément dans un tableau
     $tableau[] = "fraise";
 
+    //count
+    //function qui permet de compter les éléments d'un tableau
+    echo count($tableau); // affiche 4
+
 // les boucles /////////////////////////////////////////////////////////
 
     //pour parcourir un tableau il y a plusieurs possibilités
     //les trois codes suvants font exactement la même chose
 
     //première possibilité : foreach
-    foreach ($classe2["eleves"] as $eleve)
+    foreach ($eleves as $eleve)
     {
-        echo $eleve["nom"]."<br />";
+        echo $eleve."<br />";
     }
+
 
     //deuxième possibilité : while
     $i = 0;
-    while(  count($classe2["eleves"]) > $i  ) {
-        echo $classe2["eleves"][$i]["nom"]."<br />";
-        $i++;
+    //while(  count($eleves) > $i  ) {
+    while(  isset($eleves[$i])  ) {
+        $eleve = $eleves[$i];
+        echo $eleve."<br />";
+        $i++; //obligatoire sinon boucle sans fin
     }
 
     //troisième possibilité : for
     //attention aux boucles infinies
-
-    for($i = 0; count($classe2["eleves"]) > $i; $i++) {
-        echo $classe2["eleves"][$i]["nom"]."<br />";
+    for($i = 0; count($eleves) > $i; $i++) {
+        echo $eleves[$i]."<br />";
     }
 
 
@@ -156,8 +164,9 @@
     if( $boolean === false ) {}
     if( !$boolean ) {}
 
-    // && || AND OR
 
+
+    // && || AND OR
     if( $bool1 && $bool2 ) { } //$bool1 et $bool2 doivent tous les deux être vrai pour que la condition soit exécutée
     if( $bool1 || $bool2 ) { } //$bool1 ou $bool2 doivent tous les deux être vrai pour que la condition soit exécutée
 
