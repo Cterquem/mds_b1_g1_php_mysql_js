@@ -56,12 +56,12 @@ $php = [];
 //ajoute "mysql" dans le tableau $php
 $php[] = "php";
 $php[] = $eleves1;
-//on ajoute le tableau php dans le tableau matieres
+//on ajoute le tableau php dans le tableau matieres, l'élément 0 se sera $php
 $matieres[] = $php;
 
-//définition d'un tableau
+//définition d'un tableau, un élément 0 qui va être "sql", et un élement 1 qui va être la variable $eleves2 qui est un tableau
 $sql = ["sql",$eleves2];
-//on ajoute le tableau sql dans le tableau matieres
+//on ajoute le tableau $sql dans le tableau $matieres, dans le tableau $matieres l'élément 1 sera $sql
 $matieres[] = $sql;
 
 //on parcourt le tableau matieres ($matieres doit être un tableau)
@@ -74,6 +74,9 @@ foreach($matieres as $matiere)
     echo"<p>La matière est ";
     //on affiche la première colonne du tableau matiere, qui est lui-même un élément du tableau matieres
     echo $matiere[0];
+
+    echo"</p>";
+
     echo"<p>La liste des prénom est : </p>";
 
     //on parcourt la première colonne du tableau matiere, qui est lui même un tableau
