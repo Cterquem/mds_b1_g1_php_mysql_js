@@ -27,14 +27,39 @@ $chambres[] = $chambre3;
 
 //////exercice 1 : afficher les toutes les chambres
 ///
+///
+function affichageChambres($chambres)
+{
+    echo "<ul>";
+    foreach ($chambres as $chambre) {
+        echo "<li>" . $chambre["nom"];
+        //echo "<li> {$chambre["nom"]}";
+        echo "<ul>";
+        foreach ($chambre["service"] as $service) {
+            echo "<li>{$service}</li>";
+        }
+        echo "</ul></li>";
+    }
+    echo "</ul>";
+}
+
+affichageChambres($chambres);
+
+
+///
+///
 /// exercice 2: afficher la recherche
 /// si dans la page recherche.php dans le formulaire j'ai tappé lodge s'affichera : votre recherche est "lodge"
 ///
+///
+///
+///
 /// exercice 3 : lorsqu'il y a eu une recherche c'est d'afficher uniquement les chambres dont le nom correspond à la recherche
 /// si j'ai tapé mini il y a uniquement la chambre mini qui s'affiche
+///
 ///
 /// exercice 4 : pouvoir faire une recherche aussi sur les services
 /// si je recherche baignoire je n'affiche que la chambre lodge
 ///
 ///
-//
+///
