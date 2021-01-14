@@ -97,8 +97,10 @@ echo $tableauAssociatif["nom"]." a ".$tableauAssociatif["age"]." ans";
 
 
 //sécurité : avant d'accéder on vérifie si la donnée existe
-//isset renvoyer un boolean
-if( isset(  $tableau[0] )) {  echo $tableau[0]; }
+//isset est une fonction qui renvoit un boolean (true ou false)
+if( isset(  $tableau[0] )  === true ) {  echo $tableau[0]; } //il y a un élement 0 dans le tableau
+if( isset(  $tableau[0] )  === false ) {  echo $tableau[0]; } //il n'y a pas d'élement 0 dans le tableau
+if( isset(  $_GET["recherche"] )  === true ) {  echo $tableau["recherche"]; } //il n'y a pas d'élement "recherche" dans le tableau
 
 //on ajoute un élément dans un tableau, j'ajoute "fraise" dans la première place disponible du tableau $tableau
 $tableau[] = "fraise";
