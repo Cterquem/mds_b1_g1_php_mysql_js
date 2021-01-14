@@ -23,13 +23,15 @@ echo "<a href='mapage.php?parametre=valeur&deuxiemeParametre=autreValeur'>le lie
 //pour lancer une requête en POST : formulaire, requête CURL, outils externe
 
 ?>
-    <!-- formulaire en get qui ouvrira la page.php-->
+    <!-- formulaire en GET qui ouvrira la page.php-->
     <form action="page.php" method="get">
     </form>
-    <!-- formulaire en get qui ouvrira la page.php-->
+
+    <!-- formulaire en POST qui ouvrira la page.php-->
     <form action="page.php" method="post">
         <input type="text" name="nom" />
         <input type="text" name="prenom" />
+        <input type="number" name="prenom" />
         <input type="submit">
     </form>
 <?
