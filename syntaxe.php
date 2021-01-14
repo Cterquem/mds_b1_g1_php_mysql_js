@@ -44,24 +44,31 @@ echo $_POST["prenom"]; //affichera ce qui a été saisi dans le formulaire dans 
 //L es tableaux multidimensionnelles  //////////////////////////////////////////////
 
 //définition d'un tableau
-$eleves = ["tom","etienne"];
+$eleves1 = ["tom","etienne"];
+$eleves2 = ["toto","titi"];
 
 //définition d'un tableau
 $matieres = [];
 
 //définition d'un tableau
 $php = [];
-$php[] = "mysql";
-$php[] = $eleves;
+
+//ajoute "mysql" dans le tableau $php
+$php[] = "php";
+$php[] = $eleves1;
 //on ajoute le tableau php dans le tableau matieres
 $matieres[] = $php;
 
 //définition d'un tableau
-$sql = ["php",$eleves];
+$sql = ["sql",$eleves2];
 //on ajoute le tableau sql dans le tableau matieres
 $matieres[] = $sql;
 
-//on parcourt le tableau matieres, à chaque itération on récupère dans la variable matiere un élement du tableau
+//on parcourt le tableau matieres ($matieres doit être un tableau)
+//je choissis de créer une variable $matiere (je choisis le nom)
+//variable $matiere est utilisable uniquement dans le foreach
+//à chaque itération on récupère dans la variable $matiere un élement du tableau
+//on passera dans le foreach autant de fois qu'il y a d'élement dans le $matieres
 foreach($matieres as $matiere)
 {
     echo"<p>La matière est ";

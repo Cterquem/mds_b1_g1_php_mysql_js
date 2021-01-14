@@ -23,3 +23,50 @@ if( isset($_GET["section"])  === true  ) {
 
     echo "<h1>Accueil</h1>";
 }
+
+
+
+
+
+
+
+
+
+
+
+$php = [];
+//ajoute "mysql" dans le tableau $php
+$php[] = "php";
+$php[] = $eleves;
+//on ajoute le tableau php dans le tableau matieres
+
+//définition d'un tableau
+$sql = ["sql",$eleves];
+$css = ["css",$eleves];
+
+$matieres = [];
+$matieres[] = $php;
+$matieres[] = $sql;
+$matieres[] = $css;
+
+//on ajoute le tableau sql dans le tableau matieres
+
+
+echo"<p>La liste des matières (".count($matieres).") est : </p>";
+
+foreach($matieres as $matiere)
+{
+    echo $matiere;
+}
+
+
+
+
+
+
+
+
+
+
+
+
