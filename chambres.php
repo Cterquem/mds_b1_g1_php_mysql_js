@@ -51,11 +51,18 @@ affichageChambres($chambres);
 /// exercice 2: afficher la recherche
 /// si dans la page recherche.php dans le formulaire j'ai tappé lodge s'affichera : votre recherche est "lodge"
 ///
-///
-///
+
+if( isset($_POST["recherche"]))
+{
+    echo'<p>Votre recherche est "'.$_POST["recherche"].'"</p>';
+}
+
 ///
 /// exercice 3 : lorsqu'il y a eu une recherche c'est d'afficher uniquement les chambres dont le nom correspond à la recherche
 /// si j'ai tapé mini il y a uniquement la chambre mini qui s'affiche
+///
+///
+///
 ///
 ///
 /// exercice 4 : pouvoir faire une recherche aussi sur les services
