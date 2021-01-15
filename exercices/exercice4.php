@@ -24,7 +24,7 @@ $metiers[] = $dev3;
 ///
 /// exercice 2 : créer un formulaire de recherche (le mot exact)
 /// qui va pointer vers la page exercices4ppage2.php
-/// et dans cette page exercices4page2.php n'afficher que les métiers qui correspondent à la recherche
+/// et dans cette page exercices4page2.php n'afficher que le métier (et ses compétences) qui correspond à la recherche
 ///
 ///
 /// exercice 3 : dans la liste de la page exercices4.php de pouvoir cliquer sur le nom d'un métier
