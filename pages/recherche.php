@@ -1,8 +1,3 @@
-<?php
-
-include "parts/menu.php";
-
-?>
 
 
 <!--<form > équivalent car method par defaut get et l'action par défaut c'est le même fichier-->

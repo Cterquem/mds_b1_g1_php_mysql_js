@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $metiers = [];
 
 $dev1 = [];
@@ -59,7 +61,7 @@ echo"<hr />";
 ?>
 
 <form action="exercices4page2.php" method="post">
-    <input name="recherche" type="text">
+    <input name="recherche"  value="<?php if(isset($_COOKIE["lastRecherche"])) echo $_COOKIE["lastRecherche"]; ?>" type="text">
     <input type="submit" value="Faire une recherche par metier">
 </form>
 
@@ -74,6 +76,6 @@ echo"<hr />";
 ///
 ?>
 <form action="exercices4page2.php" method="post">
-    <input name="formulaire" type="text">
+    <input name="recherche"  value="<?php if(isset($_SESSION["lastRecherche"])) echo $_SESSION["lastRecherche"]; ?>" type="text">
     <input type="submit" value="Faire une recherche par compétences">
 </form>

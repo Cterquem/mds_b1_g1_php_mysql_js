@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $dev1 = [];
 $dev1["nom"] = "Développeur";
 $dev1["competences"] = ["php","mysql","html","algo"];
@@ -16,9 +18,20 @@ $metiers[] = $dev1;
 $metiers[] = $dev2;
 $metiers[] = $dev3;
 
+
+if(isset($_POST["recherche"]))
+{
+    setcookie("lastRecherche",$_POST["recherche"],time()+36000);
+}
+
+if(isset($_POST["formulaire"]))
+{
+    $_SESSION["lastRecherche"] = $_POST["formulaire"];
+}
+
+
 function afficheMetier($metier)
 {
-
         echo "<li><a href='exercice4page2.php?boulot=".$metier["nom"]."'>".$metier["nom"]."</a>";
         echo"<ul>";
         foreach ($metier["competences"] as $competences)
@@ -26,7 +39,6 @@ function afficheMetier($metier)
             echo "<li>".$competences."</li>";
         }
         echo"</ul></li>";
-
 }
 
 //exercice 2
@@ -36,18 +48,20 @@ if(isset($_POST["recherche"]))
     {
         if($_POST["recherche"] === $metier["nom"] )
         {
-            afficheMetier($metier);
+            affichageMetier($metier);
         }
     }
 }
 //exercice 3
 if(isset($_GET["boulot"]))
 {
-    foreach ($metiers as $metier)
+    foreach ($metiers as $metierRecherche)
     {
-        if($_GET["boulot"] === $metier["nom"])
+        if($_GET["boulot"] === $metierRecherche["nom"])
         {
-            afficheMetier($metier);
+
+            affichageMetier($$metierRecherche);
+
         }
     }
 }
@@ -56,10 +70,10 @@ if(isset($_GET["boulot"]))
 
 if(isset($_POST["formulaire"]))
     {
-        foreach ($metiers as $metier)
+        foreach ($metiers as $metierCompetence)
             {
                     $find = false;
-                    foreach ($metier["competences"] as $competence)
+                    foreach ($metierCompetence["competences"] as $competence)
                     {
                         if($competence === $_POST["formulaire"])
                         {
@@ -69,7 +83,7 @@ if(isset($_POST["formulaire"]))
 
                     if($find)
                     {
-                            afficheMetier($metier);
+                       affichageMetier($metierCompetence);
                     }
                 }
     }
