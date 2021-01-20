@@ -88,3 +88,12 @@ if(isset($_GET["nom"]))
         </div>
     </div>
 </section>
+
+<?php
+
+if(!$find)
+{
+    $hideH2 = true;
+    include("recherche.php");
+}
+    ?>
