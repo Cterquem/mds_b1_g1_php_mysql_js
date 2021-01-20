@@ -1,72 +1,48 @@
+<?php if( !isset($hideH2) ) { ?>
+<header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <!-- Masthead Heading-->
+        <h1 class="masthead-heading text-uppercase mb-0">Nos chambres</h1>
+        <!-- Icon Divider-->
+
+    </div>
+</header>
+<?php } ?>
+
+<!-- Portfolio Section-->
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+
+
+
 <?php
 
+foreach ($chambres as $chambre) {
 
-$chambres = [];
+    echo'<div class="col-md-6 col-lg-4 mb-3 text-center">
+                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                <a href="index.php?section=chambre&nom='.$chambre["nom"].'">
+                     <img class="mb-3" src="'.$chambre["photos"][0].'" /></a>
 
-$chambre1 = [];
-$chambre1["nom"] = "suite";
-$chambre1["taille"] = 100;
-$chambre1["service"] = ["wifi","bluetooth","douche"];
-
-$chambres[] = $chambre1;
-
-$chambre2 = [];
-$chambre2["nom"] = "lodge";
-$chambre2["taille"] = 200;
-$chambre2["service"] = ["wifi","baignoire","baignoire"];
-
-$chambres[] = $chambre2;
-
-$chambre3 = [];
-$chambre3["nom"] = "mini";
-$chambre3["taille"] = 50;
-$chambre3["service"] = ["wifi","douche"];
-
-$chambres[] = $chambre3;
-
-
-//////exercice 1 : afficher les toutes les chambres
-///
-///
-function affichageChambres($chambres)
-{
-    echo "<ul>";
-    foreach ($chambres as $chambre) {
-        echo "<li>" . $chambre["nom"];
-        //echo "<li> {$chambre["nom"]}";
-        echo "<ul>";
-        foreach ($chambre["service"] as $service) {
-            echo "<li>{$service}</li>";
-        }
-        echo "</ul></li>";
-    }
-    echo "</ul>";
+                   
+                   <h2>'.$chambre["nom"].'</h2>
+                   <h3>'.$chambre["taille"].'m2</h3>
+                   
+                </div>
+                
+                      <a class="btn btn-primary mt-3 btn-block" href="index.php?section=chambre&nom='.$chambre["nom"].'">voir la chambre</a>
+            </div>';
 }
+echo "</ul>";
 
-affichageChambres($chambres);
+?>
 
-
-///
-///
-/// exercice 2: afficher la recherche
-/// si dans la page recherche.php dans le formulaire j'ai tappé lodge s'affichera : votre recherche est "lodge"
-///
-
-if( isset($_POST["recherche"]))
-{
-    echo'<p>Votre recherche est "'.$_POST["recherche"].'"</p>';
-}
-
-///
-/// exercice 3 : lorsqu'il y a eu une recherche c'est d'afficher uniquement les chambres dont le nom correspond à la recherche
-/// si j'ai tapé mini il y a uniquement la chambre mini qui s'affiche
-///
-///
-///
-///
-///
-/// exercice 4 : pouvoir faire une recherche aussi sur les services
-/// si je recherche baignoire je n'affiche que la chambre lodge
-///
-///
-///
+        </div>
+    </div>
+</section>

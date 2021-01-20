@@ -1,5 +1,29 @@
 <?php
 
+// SESSION /////////////////////////////////////////////////////////////////
+
+    //pour pouvoir avoir accès au tableau de session il faut au préalable démarrer la session dans le fichier php
+    session_start();
+
+    //ensuite on a accès à un tableau $_SESSION qui contient toutes les données de la session PHP
+
+    //ajout de données :
+    $_SESSION["nom"] = "valeur";
+
+    //accès aux données :
+    echo $_SESSION["nom"];
+
+    //pour détruire toutes les données de la session on utilise
+    session_destroy();
+
+// COOKIES /////////////////////////////////////////////////////////////////
+
+    //en tout on a accès au tableau des cookies : $_COOKIE
+    //ajout de données, on donne un nom et une valeur et un temps dans le future (ici dans une heure)
+    setcookie("nom","valeur",time() + 3600);
+
+    //accès aux données :
+    echo $_COOKIE["nom"];
 
 //Le passage d'information entre les pages /////////////////////////////////////////////////
 
