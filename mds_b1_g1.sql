@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : lun. 25 jan. 2021 à 08:07
+-- Généré le : lun. 25 jan. 2021 à 08:37
 -- Version du serveur :  5.7.30
 -- Version de PHP : 7.4.9
 
@@ -28,6 +28,7 @@ USE `mds_b1_g1`;
 -- Structure de la table `avis`
 --
 
+DROP TABLE IF EXISTS `avis`;
 CREATE TABLE `avis` (
   `id` int(11) NOT NULL,
   `chambre_id` int(11) NOT NULL,
@@ -50,6 +51,7 @@ INSERT INTO `avis` (`id`, `chambre_id`, `nom`, `contenu`, `note`) VALUES
 -- Structure de la table `chambres`
 --
 
+DROP TABLE IF EXISTS `chambres`;
 CREATE TABLE `chambres` (
   `id` int(11) NOT NULL,
   `nom` varchar(30) NOT NULL,
@@ -73,6 +75,7 @@ INSERT INTO `chambres` (`id`, `nom`, `tarif`, `description`, `taille`) VALUES
 -- Structure de la table `photos`
 --
 
+DROP TABLE IF EXISTS `photos`;
 CREATE TABLE `photos` (
   `id` int(11) NOT NULL,
   `chambre_id` int(11) NOT NULL,
@@ -94,6 +97,7 @@ INSERT INTO `photos` (`id`, `chambre_id`, `path`) VALUES
 -- Structure de la table `services`
 --
 
+DROP TABLE IF EXISTS `services`;
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
   `chambre_id` int(11) NOT NULL,
