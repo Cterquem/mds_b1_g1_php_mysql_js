@@ -1,19 +1,16 @@
 <?php
 
-if(isset($_GET["nom"]))
-{
-    $nomAchercher= $_GET["nom"];
-}else if(isset($_POST["nom"]))
-{
-    $nomAchercher= $_POST["nom"];
-}
+$query = "SELECT * FROM chambres WHERE id = :id";
+$stmt = $dbh->prepare($query);
+$stmt->execute(array('id' => $_GET["id"]));
+$chambre = $stmt->fetch();
 
 ?><!-- Masthead-->
 <header class="masthead bg-primary text-white text-center">
     <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Avatar Image-->
         <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0"><?php echo $nomAchercher; ?></h1>
+        <h1 class="masthead-heading text-uppercase mb-0"><?php echo $chambre["nom"]; ?></h1>
         <!-- Icon Divider-->
 
         <!-- Masthead Subheading-->
@@ -32,12 +29,7 @@ if(isset($_GET["nom"]))
 
             <?php
 
-            $find = false;
-            foreach ($chambres as $chambre) {
 
-                if($nomAchercher === $chambre["nom"]) {
-
-                    $find = true;
 
                     echo '
                 <div class="col-8 text-center">
@@ -54,34 +46,38 @@ if(isset($_GET["nom"]))
                    <hr />
                    <h4>Liste des services : </h4><ul>';
 
-                    foreach ($chambre["service"] as $service) {
-                        echo "<div class='btn btn-info m-3'>".$service."</div>";
-                    }
+                    ///TODO : à afficher correction
+                    echo "<h1>A FAIRE</h1>";
 
 
                     echo '</div> <div class="col-12"><hr /><h2>Photo de la chambre</h2></div>';
 
-                    foreach ($chambre["photos"] as $photo) {
-                        echo'<div class="col-md-6 col-lg-4 mb-3 text-center">
-                            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                               <img src="'.$photo.'" />
-                            </div>
-            
-                        </div>';
-                    }
+
+            ///TODO : à afficher
+            echo "<div class=\"col-12\"><h1>A FAIRE</h1></div>";
+
+
+
+//                    foreach ($chambre["photos"] as $photo) {
+//                        echo'<div class="col-md-6 col-lg-4 mb-3 text-center">
+//                            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+//                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+//                                    <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+//                                </div>
+//                               <img src="'.$photo.'" />
+//                            </div>
+//
+//                        </div>';
+//                    }
+
+
+
+            ///TODO : à afficher
+            echo "<div class=\"col-12\"><hr ><h1>Avis clients</h1>";
+            echo "<h1>A FAIRE</h1></div>";
 
                     echo'</div>';
-                }
-            }
 
-            if(!$find)
-            {
-
-                echo"<h1>Aucune chambre ne correspond</h1>";
-            }
 
             ?>
 
@@ -91,9 +87,6 @@ if(isset($_GET["nom"]))
 
 <?php
 
-if(!$find)
-{
-    $hideH2 = true;
     include("recherche.php");
-}
-    ?>
+
+?>

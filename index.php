@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+include "conf/mysql.php";
+
 
 ?>
 
@@ -13,7 +15,6 @@ session_start();
 
 <?php
 
-include "data/chambres.php";
 
 include "parts/menu.php";
 

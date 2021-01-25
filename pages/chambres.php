@@ -23,12 +23,16 @@
 
 <?php
 
+$query = "SELECT * FROM chambres"; // Enregistrement de la requête SQL dans une variable
+$stmt = $dbh->prepare($query); // Préparation de la requête et récupération d'un objet de type PDOStatement
+$stmt->execute(); // Execution de la requête
+$chambres = $stmt->fetchAll(); // Retourne l'ensemble des résultats de la requête sous forme de tableau (array)
+
 foreach ($chambres as $chambre) {
 
     echo'<div class="col-md-6 col-lg-4 mb-3 text-center">
                 <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                <a href="index.php?section=chambre&nom='.$chambre["nom"].'">
-                     <img class="mb-3" src="'.$chambre["photos"][0].'" /></a>
+                <a href="index.php?section=chambre&id='.$chambre["id"].'">
 
                    
                    <h2>'.$chambre["nom"].'</h2>
@@ -36,7 +40,7 @@ foreach ($chambres as $chambre) {
                    
                 </div>
                 
-                      <a class="btn btn-primary mt-3 btn-block" href="index.php?section=chambre&nom='.$chambre["nom"].'">voir la chambre</a>
+                      <a class="btn btn-primary mt-3 btn-block" href="index.php?section=chambre&id='.$chambre["id"].'">voir la chambre</a>
             </div>';
 }
 

@@ -8,7 +8,7 @@ $chambre1["description"] = " Lorem ipsum dolor sit amet, consectetur adipiscing 
 $chambre1["taille"] = 100;
 $chambre1["service"] = ["wifi","bluetooth","douche"];
 $chambre1["tarif"] = 54;
-$chambre1["photos"] = ["https://loremflickr.com/320/240/room,hotel,hostel/all?lock=1","https://loremflickr.com/320/240/room,hotel,hostel/all?lock=2","https://loremflickr.com/320/240/room,hotel,hostel/all?lock=3"];
+$chambre1["photos"] = ["hall.jpg","https://loremflickr.com/320/240/room,hotel,hostel/all?lock=2","https://loremflickr.com/320/240/room,hotel,hostel/all?lock=3"];
 
 $chambres[] = $chambre1;
 
