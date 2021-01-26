@@ -30,19 +30,10 @@ $chambres = $stmt->fetchAll(); // Retourne l'ensemble des r√©sultats de la requ√
 
 foreach ($chambres as $chambre) {
 
-    echo'<div class="col-md-6 col-lg-4 mb-3 text-center">
-                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                <a href="index.php?section=chambre&id='.$chambre["id"].'">
-
-                   
-                   <h2>'.$chambre["nom"].'</h2>
-                   <h3>'.$chambre["taille"].'m2</h3>
-                   
-                </div>
-                
-                      <a class="btn btn-primary mt-3 btn-block" href="index.php?section=chambre&id='.$chambre["id"].'">voir la chambre</a>
-            </div>';
+   afficheVignetteChambre($chambre);
 }
+
+
 
 ?>
 

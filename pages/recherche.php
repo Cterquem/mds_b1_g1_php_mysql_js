@@ -42,6 +42,8 @@
 
 if(isset($_POST["nom"]))
 {
+
+    echo"<div class='container mt-5'><div class='row'>";
     $query = "SELECT * FROM chambres WHERE nom LIKE :nom";
     $stmt = $dbh->prepare($query);
     $stmt->execute(array('nom' => "%".$_POST["nom"]."%"));
@@ -50,18 +52,18 @@ if(isset($_POST["nom"]))
 
     foreach ($chambres as $chambre) {
 
-        echo'<div class="col-md-6 col-lg-4 mb-3 text-center">
-                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                <a href="index.php?section=chambre&id='.$chambre["id"].'">
+        afficheVignetteChambre($chambre);
 
-                   
-                   <h2>'.$chambre["nom"].'</h2>
-                   <h3>'.$chambre["taille"].'m2</h3>
-                   
-                </div>
-                
-                      <a class="btn btn-primary mt-3 btn-block" href="index.php?section=chambre&id='.$chambre["id"].'">voir la chambre</a>
-            </div>';
     }
 
+    if( count($chambres) === 0)
+    {
+        echo"<div class='col-12 alert alert-danger'>Aucune chambre ne correspond à cette recherche</div>";
+
+    }
+
+    echo"</div></div>";
+
 }
+
+?>

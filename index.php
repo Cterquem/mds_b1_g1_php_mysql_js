@@ -2,6 +2,7 @@
 
 session_start();
 include "conf/mysql.php";
+include "fonctions/main.php";
 
 
 ?>

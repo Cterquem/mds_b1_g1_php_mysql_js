@@ -1,5 +1,9 @@
 <?php
 
+$query = "SELECT * FROM services WHERE nom_service LIKE :nom";
+$stmt = $dbh->prepare($query);
+$stmt->execute(array('nom' => "%".$_POST["q"]."%"));
+$services = $stmt->fetchAll();
 
 ?><!-- Masthead-->
 <header class="masthead bg-primary text-white text-center">
@@ -25,41 +29,23 @@
 
             <?php
 
-            $find = false;
 
-            foreach ($chambres as $chambre) {
-                $disposeService = false;
-                foreach($chambre["service"] as $service)
-                {
-                    if($service === $_POST['q'])
-                    {
-                        $disposeService = true;
-                        $find =true;
-                    }
-                }
-                if($disposeService) {
+            foreach ($services as $service) {
 
-                    echo'<div class="col-md-6 col-lg-4 mb-3 text-center">
-                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                <a href="index.php?section=chambre&nom='.$chambre["nom"].'">
-                     <img class="mb-3" src="'.$chambre["photos"][0].'" /></a>
+                $query = "SELECT * FROM chambres WHERE id = :idChambre";
+                $stmt = $dbh->prepare($query);
+                $stmt->execute(array('idChambre' => $service["chambre_id"]));
+                $chambre = $stmt->fetch();
 
-                   
-                   <h2>'.$chambre["nom"].'</h2>
-                   <h3>'.$chambre["taille"].'m2</h3>
-                   
-                </div>
-                
-                      <a class="btn btn-primary mt-3 btn-block" href="index.php?section=chambre&nom='.$chambre["nom"].'">voir la chambre</a>
-            </div>';
-                }
+                afficheVignetteChambre($chambre);
+
             }
 
-            if(!$find)
+            if( count($services) === 0)
             {
-
-                echo"<h1>Aucune chambre ne correspond</h1>";
+                echo"<div class='col-12 alert alert-danger'>Aucune chambre ne correspond à cette recherche</div>";
             }
+
 
 
 
